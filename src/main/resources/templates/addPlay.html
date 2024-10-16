@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:insert="~{blocks/head_block :: head}"></th:block>
+    <title>Добавление груза</title>
+</head>
+
+<header th:insert="~{blocks/header :: header}"></header>
+<body>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+        <form action="/addCargo" method="post">
+            <input type="hidden" data-th-name="${_csrf.parameterName}"
+                   data-th-value="${_csrf.token}"> <!-- CSRF токен -->
+
+            <h1 class="h3 mb-3 fw-normal">Добавление груза</h1>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="cargoName" placeholder="Название груза" name="cargoName" required>
+                <label for="cargoName">Название груза</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="content" placeholder="Содержимое" name="content" required>
+                <label for="content">Содержимое</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="departureCity" placeholder="Город отправки" name="departureCity" required>
+                <label for="departureCity">Город отправки</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="datetime-local" class="form-control" id="departureDate" placeholder="Дата отправки" name="departureDate" required>
+                <label for="departureDate">Дата отправки</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="arrivalCity" placeholder="Город прибытия" name="arrivalCity" required>
+                <label for="arrivalCity">Город прибытия</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="datetime-local" class="form-control" id="arrivalDate" placeholder="Дата прибытия" name="arrivalDate" required>
+                <label for="arrivalDate">Дата прибытия</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
+
+<footer class="container py-5" th:insert="~{blocks/footer :: footer}"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
